@@ -1,10 +1,10 @@
 !alert("Si gastas mas de $15000 10% descuento \nSi gastas mas de $20000 15% descuento\nSi gastas mas de $25000 20% descuento")
 
 function calcularDescuento() {
-  var totalGastos = 0;
+  let totalGastos = 0;
 
   while (true) {
-    var montoProducto = prompt("Ingrese el monto del producto (o ingrese 'fin' para finalizar):");
+    let montoProducto = prompt("Ingrese el monto del producto (o ingrese 'fin' para finalizar):");
 
     if (montoProducto.toLowerCase() === "fin") {
       break;
@@ -20,7 +20,7 @@ function calcularDescuento() {
     totalGastos += montoProducto;
   }
 
-  var descuento = 0;
+  let descuento = 0;
 
   if (totalGastos >= 15000) {
     if (totalGastos >= 25000) {
@@ -32,8 +32,8 @@ function calcularDescuento() {
     }
   }
 
-  var porcentajeDescuento = descuento * 100;
-  var montoAPagar = totalGastos - (totalGastos * descuento);
+  let porcentajeDescuento = descuento * 100;
+  let montoAPagar = totalGastos - (totalGastos * descuento);
 
   alert("Monto a pagar después del descuento: $" + montoAPagar.toFixed(2) + "\nPorcentaje de descuento: " + porcentajeDescuento + "%");
 }
