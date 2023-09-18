@@ -1,44 +1,27 @@
-!alert("Si gastas mas de $15000 10% descuento \nSi gastas mas de $20000 15% descuento\nSi gastas mas de $25000 20% descuento")
+// Declaración de variables
 
-function calcularDescuento() {
-  let totalGastos = 0;
+let camisetas = [
+  { equipo: "boca juniors", talle: "M", stock: 1, precio: 600 },
+  { equipo: "river plate", talle: "L", stock: 3, precio: 600 },
+  { equipo: "independiente", talle: "M", stock: 2, precio: 450 },
+  { equipo: "san lorenzo", talle: "S", stock: 8, precio: 450}
+  { equipo: "estudiantes", talle: "M", stock: 5, precio: 450}
+  { equipo: "racing", talle: "S", stock: 4, precio: 450}
+  { equipo: "colon", talle: "L", stock: 15, precio: 450}
+  
+];
 
-  while (true) {
-    let montoProducto = prompt("Ingrese el monto del producto (o ingrese 'fin' para finalizar):");
+let totalCompra = 0;
+let carritoCompra = []; // Uso un array para llevar un registro de las compras
 
-    if (montoProducto.toLowerCase() === "fin") {
-      break;
-    }
+// Función para mostrar las camisetas disponibles
 
-    montoProducto = parseFloat(montoProducto);
-
-    if (isNaN(montoProducto)) {
-      alert("Valor inválido. Intente nuevamente.");
-      continue;
-    }
-
-    totalGastos += montoProducto;
+function mostrarCamisetasDisponibles() {
+  let mensaje = "Camisetas disponibles:\n";
+  for (let i = 0; i < camisetas.length; i++) {
+    mensaje += `${camisetas[i].equipo} - Talle: ${camisetas[i].talle} - Stock: ${camisetas[i].stock} - Precio: $${camisetas[i].precio}\n`;
   }
-
-  let descuento = 0;
-
-  if (totalGastos >= 15000) {
-    if (totalGastos >= 25000) {
-      descuento = 0.2; // 20% de descuento
-    } else if (totalGastos >= 20000) {
-      descuento = 0.15; // 15% de descuento
-    } else {
-      descuento = 0.1; // 10% de descuento
-    }
-  }
-
-  let porcentajeDescuento = descuento * 100;
-  let montoAPagar = totalGastos - (totalGastos * descuento);
-
-  alert("Monto a pagar después del descuento: $" + montoAPagar.toFixed(2) + "\nPorcentaje de descuento: " + porcentajeDescuento + "%");
+  alert(mensaje);
 }
-
-// Llamar a la función para calcular el descuento
-calcularDescuento();
 
 
